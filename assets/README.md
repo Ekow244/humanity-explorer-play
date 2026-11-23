@@ -15,8 +15,28 @@ portraits/<character>/<expression>.png
   expressions: neutral  happy  amused  concerned  sad  surprised
   Transparent PNG, up to 176px tall at stage scale (taller art is scaled down).
   A missing expression falls back to neutral.png, then to a placeholder.
-  Only neutral.png is listed in the manifest to start with; add a line per extra expression.
+  The manifest lists neutral.png for everyone and all 25 Chapter 1 expressions; add a line for any other.
 audio/music/   home-warm  market-day  tender  road-quiet  tense  sorrow  sea  night   (.ogg, looped)
 audio/sfx/     select  rooster  rustle  thud  waves  creak                          (.ogg)
 fonts/         add a pixel font and point --font at it in src/ui/styles.css
 ```
+
+## Pixel or illustrated (art test)
+
+The 2D stage can draw at two sizes. Pixel is the default; illustrated is a test, switched on with
+`?art=hd` in the address or Settings > "Art style (test)". Compare them at `/art-compare.html`.
+
+```
+pixel         480x270 backgrounds, portraits up to 176px tall, hard edges      (folders above)
+illustrated   1920x1080 backgrounds, portraits up to 704px tall, smooth scaling
+  backgrounds-hd/<id>.png                     ("hd" on the background in the manifest)
+  portraits-hd/<character>/<expression>.png   ("portraitsHd" in the manifest)
+```
+
+The manifest already lists illustrated files for the five Chapter 1 backgrounds and the 25
+Chapter 1 expressions. On the illustrated stage a missing file falls back to the pixel file, then
+to the placeholder, each enlarged four times.
+
+`art-test/` holds STAND-IN pictures for that test only (Unreal screenshots and Ama v2 renders).
+They are not final art. `node scripts/make-art-test.mjs` rebuilds them, they are listed in
+`src/content/assets.art-test.json`, and the normal game never loads them.

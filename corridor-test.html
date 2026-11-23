@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corridor Test</title>
+    <style>
+      :root {
+        --bg: #121014;
+        --panel: #1c1920;
+        --ink: #efe6d6;
+        --muted: #a89c8a;
+        --gold: #f2c14e;
+        --line: #3a3340;
+        --found: #8fd18a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 15px/1.45 system-ui, sans-serif;
+      }
+      header {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 20px 16px 8px;
+      }
+      h1 {
+        font-size: 1.3em;
+        margin: 0 0 6px;
+      }
+      header p {
+        margin: 4px 0;
+        color: var(--muted);
+        max-width: 70ch;
+      }
+      header q {
+        color: var(--ink);
+      }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 8px 16px 32px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 16px;
+      }
+      .panel {
+        background: var(--panel);
+        border: 2px solid var(--line);
+        border-radius: 8px;
+        padding: 10px;
+        outline: none;
+      }
+      .panel.active {
+        border-color: var(--gold);
+      }
+      .panel h2 {
+        font-size: 1em;
+        margin: 0 0 2px;
+      }
+      .panel .how {
+        color: var(--muted);
+        font-size: 0.85em;
+        margin: 0 0 8px;
+        min-height: 2.6em;
+      }
+      .panel canvas {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 4px;
+        touch-action: none;
+        cursor: grab;
+      }
+      .panel canvas.pixel {
+        image-rendering: pixelated;
+      }
+      .take {
+        margin-top: 8px;
+        min-height: 3em;
+        font-size: 0.9em;
+      }
+      .take.found {
+        color: var(--found);
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 6px;
+        font-size: 0.85em;
+        color: var(--muted);
+      }
+      .row button {
+        background: #2a2530;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 4px 10px;
+        cursor: pointer;
+      }
+      .pad {
+        display: none;
+        gap: 4px;
+        margin-top: 6px;
+      }
+      .pad button {
+        flex: 1;
+        background: #2a2530;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 8px 0;
+      }
+      @media (pointer: coarse) {
+        .pad {
+          display: flex;
+        }
+      }
+      footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 16px 32px;
+        color: var(--muted);
+        font-size: 0.85em;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/corridor-DthvrLpF.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/placeholders--wgHVJlW.js">
+    <link rel="modulepreload" crossorigin href="./assets/three.module-B3Rqb2Vx.js">
+  </head>
+  <body>
+    <header>
+      <h1>The corridor: one beat, three ways</h1>
+      <p>
+        Chapter 8, a spare take. <q>Far at the back, a girl crosses the end of the corridor with an armful of loose papers. Felix is
+        standing in the doorway she needs.</q> Later Nia goes back to the clip and <q>watches the far end of the corridor instead of
+        Felix.</q>
+      </p>
+      <p>Find the girl in each version. Click a panel to control it. The question: does choosing where to stand add something that choosing where to point does not?</p>
+    </header>
+    <main id="panels"></main>
+    <footer>
+      Greybox test, not final art. The figures are the game's placeholder portraits on flat cut-outs, standing in for an artist's
+      drawings. Nothing here is part of the story yet.
+    </footer>
+  </body>
+</html>
